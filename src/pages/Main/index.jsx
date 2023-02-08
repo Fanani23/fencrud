@@ -68,7 +68,7 @@ const Main = () => {
   };
 
   useEffect(() => {
-    let url = `http://localhost:3071/goods`;
+    let url = `${process.env.REACT_APP_API_KEY}/goods`;
     if (limit !== "5") {
       url = `${url}?limit=${limit}`;
     } else {
@@ -106,7 +106,7 @@ const Main = () => {
     formData.append("purchase", purchase);
     formData.append("photo", photo);
     try {
-      axios.post(`http://localhost:3071/goods`, formData, auth);
+      axios.post(`${process.env.REACT_APP_API_KEY}/goods`, formData, auth);
       Swal.fire(
         "Success",
         "Adding data success, if data didn't match you must refresh your browser",
@@ -135,7 +135,7 @@ const Main = () => {
   const fetchEditData = async (item) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3071/goods/good/${item.id}`,
+        `${process.env.REACT_APP_API_KEY}/goods/good/${item.id}`,
         auth
       );
       setIdEdit(data.data[0].id);
@@ -159,7 +159,11 @@ const Main = () => {
     formData.append("purchase", purchaseEdit);
     formData.append("photo", photoEdit);
     try {
-      axios.put(`http://localhost:3071/goods/${idEdit}`, formData, auth);
+      axios.put(
+        `${process.env.REACT_APP_API_KEY}/goods/${idEdit}`,
+        formData,
+        auth
+      );
       Swal.fire(
         "Success",
         "Editing data success, if data didn't match you must refresh your browser",
@@ -183,7 +187,7 @@ const Main = () => {
   const fetchDeleteData = async (id) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3071/goods/good/${id}`,
+        `${process.env.REACT_APP_API_KEY}/goods/good/${id}`,
         auth
       );
       setNameDelete(data.data[0].name);
@@ -194,7 +198,10 @@ const Main = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3071/goods/${idDelete}`, auth);
+      await axios.delete(
+        `${process.env.REACT_APP_API_KEY}/goods/${idDelete}`,
+        auth
+      );
       Swal.fire(
         "Success",
         "Deleting data success, if data didn't match you must refresh your browser"

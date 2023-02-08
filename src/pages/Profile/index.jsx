@@ -56,7 +56,7 @@ const Profile = () => {
   const fetchEditProfile = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3071/users/profile`,
+        `${process.env.REACT_APP_API_KEY}/users/profile`,
         auth
       );
       setNameEdit(data.data.name);
@@ -81,7 +81,11 @@ const Profile = () => {
     formData.append("phone", phoneEdit);
     formData.append("photo", photoEdit);
     try {
-      axios.put(`http://localhost:3071/users/profile`, formData, auth);
+      axios.put(
+        `${process.env.REACT_APP_API_KEY}/users/profile`,
+        formData,
+        auth
+      );
       Swal.fire(
         "Success",
         "Editing profile data success, if data didn't match you must refresh your browser",

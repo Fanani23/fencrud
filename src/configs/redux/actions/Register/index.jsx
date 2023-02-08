@@ -4,7 +4,10 @@ import Swal from "sweetalert2";
 export const registerUser = (data, navigate) => async (dispatch) => {
   try {
     dispatch({ type: "USER_REGISTER_PENDING" });
-    const res = await axios.post(`http://localhost:3071/users/register`, data);
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_KEY}/users/register`,
+      data
+    );
     const user = res.data.data;
     dispatch({ type: "USER_REGISTER_SUCCESS", payload: user });
     Swal.fire(
