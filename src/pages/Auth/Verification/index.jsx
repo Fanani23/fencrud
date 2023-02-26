@@ -28,7 +28,7 @@ const Verification = () => {
           <img src={assets.logoSplash} alt="Kato Hair Design" />
           <div className="bg-white rounded-lg flex flex-col mt-5 items-center py-10">
             <h1 className="text-orange-400 font-semibold text-2xl mb-10 font-noto-sans">
-              LOGIN
+              VERIFICATION
             </h1>
             <form onSubmit={handleVerification} className="flex flex-col">
               <div className="relative w-full mb-6">
