@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import assets from "../../../assets";
-import axios from "axios";
 import { MdMailOutline, MdOutlineLock } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
