@@ -12,7 +12,8 @@ export const registerUser = (data, navigate) => async (dispatch) => {
     dispatch({ type: "USER_REGISTER_SUCCESS", payload: user });
     Swal.fire(
       "Success",
-      "Register user success, we already send OTP to your email. Check your email, and verification your account"
+      "Register user success, we already send OTP to your email. Check your email, and verification your account",
+      "success"
     );
     navigate("/verification");
   } catch (err) {

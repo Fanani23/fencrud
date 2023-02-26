@@ -15,7 +15,7 @@ export const verificationAccount = (data, navigate) => async (dispatch) => {
       "Verification account success, you can login to your account",
       "success"
     );
-    navigate("/login");
+    navigate("/");
   } catch (err) {
     console.log("Verification account error", err);
     Swal.fire(
