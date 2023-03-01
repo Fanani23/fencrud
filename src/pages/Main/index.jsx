@@ -115,7 +115,7 @@ const Main = () => {
     } catch (err) {
       if (
         err &&
-        err.name ===
+        err.message ===
           "Name product is already used. Try to add product with another unique name product"
       ) {
         Swal.fire(
