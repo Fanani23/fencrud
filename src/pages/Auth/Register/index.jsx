@@ -122,7 +122,7 @@ const Register = () => {
               <div className="relative w-full mb-6">
                 <p
                   type="button"
-                  className="text-end text-sm text-orange-400"
+                  className="cursor-pointer text-end text-sm text-orange-400"
                   onClick={() => navigate("/")}
                 >
                   Already have an account?

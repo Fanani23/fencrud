@@ -63,7 +63,7 @@ export default function Pagination(props) {
   const [listPages, setListPages] = useState();
 
   function getPageOptions(cur) {
-    let listPages = [];
+    let listPages = 0;
     let start;
     let end;
 
