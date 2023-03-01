@@ -104,7 +104,7 @@ export default function Pagination(props) {
   return (
     <nav className="flex flex-row space-x-3 mx-auto">
       {listPages &&
-        listPages.map((page, idx) => genButton(page, idx, props, handleClick))}
+        listPages((page, idx) => genButton(page, idx, props, handleClick))}
       {genPrevOrNextButton(props, goPrev, "prev")}
       {genPrevOrNextButton(props, goNext, "next")}
     </nav>
