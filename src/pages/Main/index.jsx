@@ -113,11 +113,21 @@ const Main = () => {
         "success"
       );
     } catch (err) {
-      Swal.fire(
-        "Warning",
-        "Adding data failed, check your input value again",
-        "error"
-      );
+      console.log(err);
+      console.log(err.message);
+      if (
+        err &&
+        err.message ===
+          "Name product is already used. Try to add product with another unique name product"
+      ) {
+        Swal.fire("Warning", "Name product already exist", "error");
+      } else {
+        Swal.fire(
+          "Warning",
+          "Adding data failed, check your input value again",
+          "error"
+        );
+      }
     }
   };
 
