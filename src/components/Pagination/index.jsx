@@ -77,7 +77,7 @@ export default function Pagination(props) {
     if (end > props.maxPage) end = props.maxPage;
 
     for (let i = start; i <= end; i++) {
-      listPages.push(i);
+      listPages = listPages + i;
     }
     setListPages(listPages);
   }
