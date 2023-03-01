@@ -97,7 +97,7 @@ const Main = () => {
     setPage(page);
   };
 
-  const handleCreate = (e) => {
+  const handleCreate = async (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("name", name);
@@ -106,18 +106,18 @@ const Main = () => {
     formData.append("purchase", purchase);
     formData.append("photo", photo);
     try {
-      axios.post(`${process.env.REACT_APP_API_KEY}/goods`, formData, auth);
+      await axios.post(
+        `${process.env.REACT_APP_API_KEY}/goods`,
+        formData,
+        auth
+      );
       Swal.fire(
         "Success",
         "Adding data success, if data didn't match you must refresh your browser",
         "success"
       );
     } catch (err) {
-      if (
-        err &&
-        err.message ===
-          "Name product is already used. Try to add product with another unique name product"
-      ) {
+      if (err && err.response?.status === 400) {
         Swal.fire(
           "Warning",
           "Adding data failed, name product is already exist. Try to add product with another unique name",
