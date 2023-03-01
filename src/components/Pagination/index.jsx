@@ -63,7 +63,7 @@ export default function Pagination(props) {
   const [listPages, setListPages] = useState();
 
   function getPageOptions(cur) {
-    let listPages = 0;
+    let listPages = [];
     let start;
     let end;
 
@@ -77,7 +77,7 @@ export default function Pagination(props) {
     if (end > props.maxPage) end = props.maxPage;
 
     for (let i = start; i <= end; i++) {
-      listPages = listPages + i;
+      listPages.push(i);
     }
     setListPages(listPages);
   }
@@ -104,7 +104,7 @@ export default function Pagination(props) {
   return (
     <nav className="flex flex-row space-x-3 mx-auto">
       {listPages &&
-        listPages((page, idx) => genButton(page, idx, props, handleClick))}
+        listPages.map((page, idx) => genButton(page, idx, props, handleClick))}
       {genPrevOrNextButton(props, goPrev, "prev")}
       {genPrevOrNextButton(props, goNext, "next")}
     </nav>
